@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+   
+    <title>首页</title>
+</head>
+
+<body>
+	
+    <div class="wrapper">
+        <ul class="nav">
+            <li><a href="index.html" class="current">首页</a></li>
+            <li><a href="aboutNBA.html">NBA历年冠军</a></li>
+            <li><a href="Lebron.html">我最喜欢的球星</a></li>
+        </ul>
+        <div class="swiper">
+           <!-- 轮播图 -->
+          <div id="wrap" class="wrap">
+                <ul id="pic">
+                    <li><img src="images/0187c6607affa811013fb117fb2169.jpg@1280w_1l_2o_100sh.jpg" alt="" /></li>
+                    <li><img src="images/012b8a607aff3c11013fb117e319aa.jpg@1280w_1l_2o_100sh.jpg" alt="" /></li>
+                </ul>
+				
+                <div class="discBox" id="list">
+                    <span class="on"></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+		
+        <!-- 主体内容 -->
+        <div class="content">
+            <div class="aboutHZ">
+            <img src="images/5082559_101931722311_2.jpg" alt="" width="64%" height="402">
+            <div label-module="para" data-uuid="godln3sddg" data-pid="1">
+              <p>美国职业篮球联赛（National Basketball Association），简称美职篮（NBA），是由北美30支职业球队组成的职业篮球联盟，是美国四大职业体育联盟之一。 <br>
+                <br>
+              </p>
+              <p>&nbsp;</p>
+            </div>
+            <div label-module="para" data-uuid="godlnpkpuw" data-pid="2">其中诞生了如：迈克尔·乔丹、卡里姆·阿布杜尔-贾巴尔、威尔特·张伯伦、比尔·拉塞尔、埃尔文·约翰逊、拉里·伯德、勒布朗·詹姆斯、奥斯卡·罗伯特森、沙奎尔·奥尼尔、约翰·哈弗利切克、里克·巴里、约翰·斯托克顿、卡尔·马龙、埃尔金·贝勒、大卫·罗宾逊、朱利叶斯·欧文、查尔斯·巴克利、阿伦·艾弗森、詹姆斯·哈登、姚明、丹尼斯·罗德曼、蒂姆·邓肯、科比·布莱恩特、德怀恩·韦德、斯蒂芬·库里、凯文·杜兰特、摩西·马龙、乔治·麦肯、鲍勃·库西、保罗·乔治、科怀·伦纳德、克莱·汤普森、克里斯·保罗、马努·吉诺比利、托尼·帕克、哈基姆·奥拉朱旺、比尔·沃顿、詹姆斯·沃西等传奇球星。 </div>
+            <div label-module="para" data-uuid="godl7xuk04" data-pid="3">NBA分为东部联盟和西部联盟，每个联盟又被划分为3个赛区，各赛区由5支球队组成。每个赛季结束后下赛季开始前，会举行NBA选秀；NBA夏季联赛，NBA季前赛、NBA常规赛通常在十月份打响。其中在2月份有一项特殊的表演赛事NBA全明星赛，NBA常规赛结束后，东、西部联盟分别由前八名进入季后赛，决出东西部冠军，晋级NBA总决赛，表现最优秀球员获比尔·拉塞尔NBA总决赛最有价值球员奖荣誉。</div>
+            </div>
+            
+            <!-- 色彩系列 -->
+            <div class="myHome">
+					<p class="titleMain">&nbsp;</p>
+					<p class="title">&nbsp;</p>
+            </div>
+        </div>
+		
+        <!-- 底部 -->
+        <div class="footer">
+     湖人总冠军！
+
+</div>
+</body>
+<script>
+    window.onload = function () {
+        // 轮播图逻辑开始
+        // 获取图片元素
+        var Awarp = document.getElementById("wrap"),
+            Apic = document.getElementById("pic").getElementsByTagName("li"),
+            Alist = document.getElementById("list").getElementsByTagName("span"),
+            // 初始轮播索引
+            index = 0,
+            // 初始化定时器
+            timer = null;
+        timer = setInterval(autoPlay, 3000);
+        // 鼠标经过清除第十七
+        Awarp.onmouseover = function () {
+            clearInterval(timer);
+        };
+        // 鼠标离开开启定时器
+        Awarp.onmouseout = function () {
+            timer = setInterval(autoPlay, 3000);
+        };
+        // 根据图片数量执行轮播
+        for (var i = 0; i < Alist.length; i++) {
+            Alist[i].onmouseover = function () {
+                clearInterval(timer);
+                index = this.innerText - 1;
+                changePic(index);
+            };
+        }
+
+        function autoPlay() {
+            if (++index >= Apic.length) index = 0;
+            changePic(index);
+        }
+
+        function changePic(curIndex) {
+            for (var i = 0; i < Apic.length; i++) {
+                Apic[i].style.display = "none";
+                Alist[i].className = "";
+            }
+            Apic[curIndex].style.display = "block";
+            Alist[curIndex].className = "on";
+        }
+        // 轮播图逻辑结束
+    };
+</script>
+
+</html>
